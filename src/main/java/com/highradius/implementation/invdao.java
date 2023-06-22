@@ -135,46 +135,33 @@ public class invdao {
 	}
 	
 	
-	
 	public boolean edit(invoicee inv) {
-		boolean f = false;
-		try {
-			String sql = "update h2h_oap set CUSTOMER_ORDER_ID=? ,SALES_ORG=? ,DISTRIBUTION_CHANNEL=?,DIVISION=?,RELEASED_CREDIT_VALUE=?,PURCHASE_ORDER_TYPE=?,COMPANY_CODE=?,ORDER_CREATION_DATE=?,ORDER_CREATION_TIME=?,CREDIT_CONTROL_AREA=?,SOLD_TO_PARTY=?,ORDER_AMOUNT=?,REQUESTED_DELIVERY_DATE=?,ORDER_CURRENCY=?,CREDIT_STATUS=?,CUSTOMER_NUMBER=?,AMOUNT_IN_USD=?,UNIQUE_CUST_ID=? where Sl_no=?";
-			
-			PreparedStatement ps = conn.prepareStatement(sql);
-			
-			ps.setString(1, inv.getCustomer_order_id());
-			ps.setString(2, inv.getSales_org());
-			ps.setString(3, inv.getDistribution_channel());
-			ps.setString(4, inv.getDivision());
-			ps.setString(5, inv.getReleased_credit_value());
-			ps.setString(6, inv.getPurchase_order_type());
-			ps.setString(7, inv.getCompany_code());
-			ps.setString(8, inv.getOrder_creation_date());
-			ps.setString(9, inv.getOrder_creation_time());
-			ps.setString(10, inv.getCredit_control_area());
-			ps.setString(11, inv.getSold_to_party());
-			ps.setString(12, inv.getOrder_amount());
-			ps.setString(13, inv.getRequested_delivery_date());
-			ps.setString(14, inv.getOrder_currency());
-			ps.setString(15, inv.getCredit_status());
-			ps.setString(16, inv.getCustomer_number());
-			ps.setString(17, inv.getAmount_in_usd());
-			ps.setString(18, inv.getUnique_cust_id());
-			ps.setString(19, inv.getslno());
-			
-			
-			
-			int i = ps.executeUpdate();
-			if (i==1) {
-				f=true;
-			}
-		   
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return f;
+	    boolean f = false;
+	    try {
+	        String sql = "update h2h_oap set CUSTOMER_ORDER_ID=? ,SALES_ORG=? ,DISTRIBUTION_CHANNEL=?,COMPANY_CODE=?,ORDER_CURRENCY=?,AMOUNT_IN_USD=?,ORDER_CREATION_DATE=? where Sl_no=?";
+
+	        PreparedStatement ps = conn.prepareStatement(sql);
+
+	        ps.setString(1, inv.getCustomer_order_id());
+	        ps.setString(2, inv.getSales_org());
+	        ps.setString(3, inv.getDistribution_channel());
+	        ps.setString(4, inv.getCompany_code());
+	        ps.setString(5, inv.getOrder_currency());
+	        ps.setString(6, inv.getAmount_in_usd());
+	        ps.setString(7, inv.getOrder_creation_date());
+	        ps.setString(8, inv.getslno());
+
+	        int i = ps.executeUpdate();
+	        if (i==1) {
+	            f=true;
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return f;
 	}
+
 	
 	
 	
