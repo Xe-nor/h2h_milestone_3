@@ -41,16 +41,7 @@ String jsonInvoiceList = gson.toJson(invoiceList);
         
         <hr>
         
-        <h3>Add Invoice</h3>
-        <form action="add" method="POST">
-            <div class="form-group">
-                <label for="customerOrderId">Customer Order ID:</label>
-                <input type="text" class="form-control" id="customerOrderId" name="customerOrderId" required>
-            </div>
-            <!-- Add more form fields for other invoice properties -->
-            
-            <button type="submit" class="btn btn-primary">Add Invoice</button>
-        </form>
+       
     </div>
 </body>
 </html>
